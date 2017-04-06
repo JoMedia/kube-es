@@ -7,9 +7,9 @@ RUN apk upgrade --update-cache; \
     rm -rf /tmp/* /var/cache/apk/*
 
 #es install
-ENV VERSION 2.4.1
+ENV VERSION 5.3.0
 RUN apk add --update bash curl ca-certificates sudo util-linux && \
-  ( curl -Lskj https://download.elasticsearch.org/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/$VERSION/elasticsearch-$VERSION.tar.gz | \
+  ( curl -Lskj https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-$VERSION.tar.gz | \
   gunzip -c - | tar xf - ) && \
   mv /elasticsearch-$VERSION /elasticsearch && \
   rm -rf $(find /elasticsearch | egrep "(\.(exe|bat)$)") &&  \
