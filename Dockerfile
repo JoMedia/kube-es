@@ -3,7 +3,7 @@ FROM alpine:3.5
 #java install
 ENV JAVA_HOME=/usr/lib/jvm/default-jvm/jre
 RUN apk upgrade --update-cache; \
-    apk add openjdk8-jre; \
+    apk add openjdk8-jre;  \
     rm -rf /tmp/* /var/cache/apk/*
 
 #es install
