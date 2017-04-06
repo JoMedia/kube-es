@@ -12,7 +12,7 @@ RUN apk add --update bash curl ca-certificates sudo util-linux && \
   ( curl -Lskj https://download.elasticsearch.org/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/$VERSION/elasticsearch-$VERSION.tar.gz | \
   gunzip -c - | tar xf - ) && \
   mv /elasticsearch-$VERSION /elasticsearch && \
-  rm -rf $(find /elasticsearch | egrep "(\.(exe|bat)$)") && \
+  rm -rf $(find /elasticsearch | egrep "(\.(exe|bat)$)") &&  \
   apk del curl
 
 # Volume for Elasticsearch data
