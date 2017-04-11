@@ -41,15 +41,17 @@ ENV MAX_LOCAL_STORAGE_NODES 1
 ENV NAMESPACE default
 ENV DISCOVERY_SERVICE elasticsearch-discovery
 
+
+#ES_PLUGINS_INSTALL io.fabric8/elasticsearch-cloud-kubernetes/$VERSION analysis-phonetic mobz/elasticsearch-head lmenezes/elasticsearch-kopf
 # Override elasticsearch.yml config, otherwise plug-in install will fail
-ADD do_not_use.yml /elasticsearch/config/elasticsearch.yml
+#ADD do_not_use.yml /elasticsearch/config/elasticsearch.yml
 # Install Elasticsearch plug-ins
-RUN /elasticsearch/bin/plugin install io.fabric8/elasticsearch-cloud-kubernetes/$VERSION --verbose
-RUN /elasticsearch/bin/plugin install analysis-phonetic
-RUN /elasticsearch/bin/plugin install mobz/elasticsearch-head
-RUN /elasticsearch/bin/plugin install lmenezes/elasticsearch-kopf
-# Override elasticsearch.yml config, otherwise plug-in install will fail
-ADD elasticsearch.yml /elasticsearch/config/elasticsearch.yml
+#RUN /elasticsearch/bin/plugin install io.fabric8/elasticsearch-cloud-kubernetes/$VERSION --verbose
+#RUN /elasticsearch/bin/plugin install analysis-phonetic
+#RUN /elasticsearch/bin/plugin install mobz/elasticsearch-head
+#RUN /elasticsearch/bin/plugin install lmenezes/elasticsearch-kopf
+## Override elasticsearch.yml config, otherwise plug-in install will fail
+#ADD elasticsearch.yml /elasticsearch/config/elasticsearch.yml
 
 EXPOSE 9200 9300
 
